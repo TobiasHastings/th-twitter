@@ -1,12 +1,13 @@
 var express = require('express');
 const app = express();
 var router = express.Router();
+const { apiAuthMiddleware: requireApiKey } = require('./auth');
 
-router.get('/testEndpoint',(req,res) => {
+router.get('/testEndpoint', requireApiKey,(req,res) => {
   res.send("hello");
 });
 
-router.get('/tweets/:username',(req,res) => {
+router.get('/tweets/:username', requireApiKey,(req,res) => {
     console.log('in tweets');
     var Twitter = require('twitter');
     console.log('twitter created');
@@ -40,7 +41,7 @@ router.get('/tweets/:username',(req,res) => {
     console.log('after call');  
 });
 
-router.get('/twitter_friends_list/:screenname',(req,res) =>{
+router.get('/twitter_friends_list/:screenname', requireApiKey,(req,res) =>{
     console.log('in twitter_friends_list');
     var Twitter = require('twitter');
     console.log('twitter created');
@@ -74,7 +75,7 @@ router.get('/twitter_friends_list/:screenname',(req,res) =>{
     console.log('after call');  
 });
 
-router.get('/bannerImageUrl/:screenname',(req,res) => {
+router.get('/bannerImageUrl/:screenname', requireApiKey,(req,res) => {
     console.log('in bannerImageUrl');
     var Twitter = require('twitter');
     console.log('twitter created');
@@ -108,7 +109,7 @@ router.get('/bannerImageUrl/:screenname',(req,res) => {
     console.log('after call');  
 });
 
-router.get('/bannerImageUrl/:screenname',(req,res) => {
+router.get('/bannerImageUrl/:screenname', requireApiKey,(req,res) => {
     console.log('in bannerImageUrl');
     var Twitter = require('twitter');
     console.log('twitter created');
