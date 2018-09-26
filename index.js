@@ -2,9 +2,9 @@ var express = require('express');
 const app = express();
 var router = express.Router();
 
-router.get('/testEndpoint'){
+router.get('/testEndpoint',(req,res) => {
   res.send("hello");
-}
+});
 
 router.get('/tweets/:username',(req,res) => {
     console.log('in tweets');
