@@ -20,7 +20,6 @@ router.get('/tweets/:username', requireApiKey,(req,res) => {
     console.log('client created');
     var username = req.params.username.toLowerCase();
     console.log('username: '+username)
-    //var params = {screen_name: 'nodejs'};
     var params = {screen_name: username};
     console.log('making call');
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
@@ -88,7 +87,6 @@ router.get('/bannerImageUrl/:screenname', requireApiKey,(req,res) => {
     console.log('client created');
     var screenname = req.params.screenname.toLowerCase();
     console.log('screenname: '+screenname)
-    //var params = {screen_name: 'nodejs'};
     var params = {screen_name: screenname};
     console.log('making call');
     client.get('users/profile_banner', params, function(error, userData, response) {
@@ -142,7 +140,6 @@ router.get('/bannerImageUrl/:screenname', requireApiKey,(req,res) => {
     });
     console.log('after call');  
 });
-
 
 app.use('/', router);
 
