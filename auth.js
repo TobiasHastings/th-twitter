@@ -1,6 +1,6 @@
 'use strict';
 
-require('dotenv').config();
+//require('dotenv').config();
 
 const API_HEADER = 'api_key';
 const TEST_API_HEADER = 'test_call_key';
